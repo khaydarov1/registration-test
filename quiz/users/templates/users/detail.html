@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Savol: {{ savol.question_text }}</h1>
+    <ul class="list-group">
+        {% for choice in savol.choice_set.all %}
+        <li class="list-group-item">{{ forloop.counter }}.
+            <a href="{% url 'users:check_answer' id=choice.id %}">{{ choice.choice_text }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
